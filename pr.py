@@ -63,4 +63,8 @@ def main(page:ft.Page):
       
     page.add(colone)
     
-ft.app(target=main,view=ft.AppView.WEB_BROWSER,port=5000)
+ft.app(
+    target=main,
+    view=ft.AppView.WEB_BROWSER,
+    port=int(os.environ.get("PORT", 5000))
+)
