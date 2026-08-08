@@ -65,7 +65,7 @@ def main(page:ft.Page):
     
     boutona=ft.Button(
       "Ajouter",
-      icon=ft.Icon.ADD,
+      icon="add",
       on_click=addp
       )
     colone=ft.Column(
