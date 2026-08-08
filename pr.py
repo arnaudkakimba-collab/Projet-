@@ -3,29 +3,31 @@ import os
 
 def main(page:ft.Page):
     
-    page.title="My WebApp"
+    page.title="Getion des personnes"
     page.padding=30
     page.scroll="auto"
     page.vertical_alignment="start"
     page.horizontal_alignment="center"
     page.bgcolor="#f0f0f0"
+    page.theme_mode=ft.ThemeMode.SYSTEM
     
     titre=ft.Text(
-        "Welcom!",
+        "Bienvenu!",
         weight="bold",
-        size=24
+        size=24,
+        #color="blue"
       )
     stitre=ft.Text(
         "Gérez vos contacts",
-        color="black"
+        #color="black"
       )
     textl=ft.Text(
-        "Statut",
-        color="black"
+        "Statut :",
+        #color="black"
       )
     textv=ft.Text(
         "En ligne",
-        color="black"
+        #color="black"
       )
     statusl=ft.Row(
         controls=[
@@ -35,15 +37,15 @@ def main(page:ft.Page):
         spacing=10
       )
     nom=ft.Text(
-      "Name :",
-      color="black"
+      "Nom :",
+      #color="black"
     )
     chnom=ft.TextField(
-        label="Name",
+        label="Nom",
         width=250,
         height=45,
-        hint_text="Put your name here",
-        color="black"
+        hint_text="Entrez votre nom",
+        #color="black"
       )
     rown=ft.Row(
         controls=[
@@ -55,17 +57,17 @@ def main(page:ft.Page):
         content=titre,
         padding=25,
         border_radius=15,
-        bgcolor="black",
+        bgcolor="white",
         alignment=ft.Alignment.CENTER
       )
       
     def addp(e):
       
-      print("personne added")
+      print("Ajouté avec succès")
     
     boutona=ft.Button(
       "Ajouter",
-      icon="add",
+      icon=ft.Icons.ADD,
       on_click=addp
       )
     colone=ft.Column(
