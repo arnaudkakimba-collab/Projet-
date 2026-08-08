@@ -7,10 +7,13 @@ def main(page:ft.Page):
     page.padding=30
     page.scroll="auto"
     page.vertical_alignment="start"
+    page.horizontal_alignment="center"
     page.bgcolor="#f0f0f0"
     
     titre=ft.Text(
-        "Welcom!"
+        "Welcom!",
+        weight="bold",
+        size=24
       )
     stitre=ft.Text(
         "Gérez vos contacts",
@@ -28,7 +31,8 @@ def main(page:ft.Page):
         controls=[
             textl,
             textv
-          ]
+          ],
+        spacing=10
       )
     nom=ft.Text(
       "Name :",
@@ -51,15 +55,28 @@ def main(page:ft.Page):
         content=titre,
         padding=25,
         border_radius=15,
-        bgcolor="black"
+        bgcolor="black",
+        alignment=ft.Alignment.CENTER
+      )
+      
+    def addp(e):
+      
+      print("personne added")
+    
+    boutona=ft.Button(
+      "Ajouter",
+      icon=ft.Icon.ADD,
+      on_click=addp
       )
     colone=ft.Column(
         controls=[
             conteneur,
             stitre,
             statusl,
-            rown
-          ]
+            rown,
+            boutona
+          ],
+        spacing=15
       )
       
     page.add(colone)
