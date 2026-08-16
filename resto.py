@@ -104,7 +104,7 @@ def main(page:ft.Page):
       # Affichage direct via show_dialog (fonctionne sur les versions récentes)
         page.show_dialog(
             ft.SnackBar(
-                content=ft.Text("Personne est ajouté!"),
+                content=ft.Text("Ajouté!"),
                 bgcolor="blue",
                 duration=3000,
             )
