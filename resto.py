@@ -20,7 +20,7 @@ def main(page:ft.Page):
     #page.dark_theme = ft.Theme(color_scheme_seed="blue")
     
     titre=ft.Text(
-        "Bienvenu!",
+        value="Bienvenu!",
         weight="bold",
         size=24,
         color="black"
