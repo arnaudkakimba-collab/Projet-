@@ -100,17 +100,18 @@ def main(page:ft.Page):
       )
       
     def save(e):
-      
-      # Affichage direct via show_dialog (fonctionne sur les versions récentes)
-        page.show_dialog(
-            ft.SnackBar(
-                content=ft.Text("Ajouté!"),
-                bgcolor="blue",
-                duration=3000,
-            )
-        )
-        
-        page.update()
+    # 1. Définir le composant SnackBar sur la page
+    page.snack_bar = ft.SnackBar(
+        content=ft.Text("Ajouté!"),
+        bgcolor="blue",
+        duration=3000,
+    )
+    # 2. Forcer l'ouverture explicite de la SnackBar
+    page.snack_bar.open = True
+    
+    # 3. Mettre à jour l'interface
+    page.update()
+
     
     boutona=ft.Button(
       "Ajouter",
