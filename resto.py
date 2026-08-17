@@ -142,6 +142,6 @@ ft.app(
     target=main,
     view=ft.AppView.WEB_BROWSER,
     host="0.0.0.0",
-    port=int(os.environ.get("PORT", 10000)
+    port=int(os.environ.get("PORT", 10000))
     #,reload=True
 )
