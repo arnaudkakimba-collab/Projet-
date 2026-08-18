@@ -139,8 +139,8 @@ def main(page:ft.Page):
       
     page.add(colone)
 
-ft.run(
-    main,
+ft.app(
+    target=main,
     view=ft.AppView.WEB_BROWSER,
     host="0.0.0.0",
     port=int(os.environ.get("PORT", 10000))
