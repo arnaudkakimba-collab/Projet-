@@ -1,7 +1,8 @@
 import flet as ft
 import os
 #import psycopg
-from fastapi import FastAPI
+#from fastapi import FastAPI
+#import uvicorn
 
 def main(page:ft.Page):
     
@@ -139,9 +140,11 @@ def main(page:ft.Page):
       
     page.add(colone)
 
-ft.app(
-    target=main,
-    view=ft.AppView.WEB_BROWSER,
-    host="0.0.0.0",
-    port=int(os.environ.get("PORT", 10000))
-)
+if __name__ == "__main__":
+    
+    ft.app(
+        target=main,
+        view=ft.AppView.WEB_BROWSER,
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 10000))
+    )
