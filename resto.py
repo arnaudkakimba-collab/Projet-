@@ -8,18 +8,14 @@ def main(page:ft.Page):
     
     page.title="Getion des personnes"
     page.padding=30
-    page.scroll="auto"
-    page.vertical_aligment=ft.MainAxisAlignment.START#"center"
-    
+    page.scroll=ft.ScrollMode.AUTO#"auto"
+    page.vertical_alignment=ft.MainAxisAlignment.START#"start"
     page.horizontal_alignment=ft.CrossAxisAlignment.CENTER#"center"
     page.spacing=20
     page.window.width=500
     page.window.height=700
     page.bgcolor = "lightgrey"
-    # Appliquer le mode système
     #page.theme_mode = ft.ThemeMode.SYSTEM
-    
-    # Définir explicitement les deux thèmes si vous les personnalisez
     #page.theme = ft.Theme(color_scheme_seed="blue")
     #page.dark_theme = ft.Theme(color_scheme_seed="blue")
     
@@ -105,7 +101,6 @@ def main(page:ft.Page):
       
     def save(e):
       
-      # Affichage direct via show_dialog (fonctionne sur les versions récentes)
         page.show_dialog(
             ft.SnackBar(
                 content=ft.Text("Ajouté!"),
@@ -123,6 +118,20 @@ def main(page:ft.Page):
     def delete(e):
         
         print("deleted")
+
+    boutons=ft.IconButton(
+        icon=ft.Icons.DELETE,
+        icon_color="red",
+        tooltip="Suprimer cette personne",
+        on_click=delete
+    )
+    listep=ft.ListView(
+        controls=[
+            
+        ],
+        height=200,
+        spacing=10
+    )
         
     colone=ft.Column(
         controls=[
@@ -133,14 +142,16 @@ def main(page:ft.Page):
             menug,
             casef,
             statutch,
-            boutona
+            boutons,
+            boutona,
+            listep
           ],
         spacing=15
       )
       
     page.add(colone)
-
-if __name__ == "__main__":
+    
+try:
     
     ft.app(
         target=main,
@@ -148,3 +159,14 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=int(os.environ.get("PORT", 10000))
     )
+    
+except:
+    
+    if __name__ == "__main__":
+        
+        ft.app(
+            target=main,
+            view=ft.AppView.WEB_BROWSER,
+            host="0.0.0.0",
+            port=int(os.environ.get("PORT", 10000))
+        )
