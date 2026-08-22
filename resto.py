@@ -115,15 +115,42 @@ def main(page:ft.Page):
       on_click=save
       )
 
-    def delete(e):
+    def fermerd(e):
+
+        dialoguec.open = False
+        page.update()
+
+    dialoguec=ft.AlertDialog(
+        title = ft.Text("Confirmation"),
+        content = ft.Text("Voulez-vous vraiment supprimer cette personne ?"),
+        actions = [
+            ft.TextButton(
+                "Oui",
+                on_click=fermerd
+            ),
+            ft.TextButton(
+                "Non",
+                on_click=fermerd
+            )
+        ]
+    )
+    cartee=ft.Card(
+        content=ft.Container(
+            content=ft.Text("Arnelle Prnl"),
+            padding=15
+        ),
+        elevation=5
+    )
+
+    def deletep(e):
         
-        print("deleted")
+        page.show_dialog(dialoguec)
 
     boutons=ft.IconButton(
         icon=ft.Icons.DELETE,
         icon_color="red",
         tooltip="Suprimer cette personne",
-        on_click=delete
+        on_click=deletep
     )
     listep=ft.ListView(
         controls=[
@@ -144,13 +171,14 @@ def main(page:ft.Page):
             statutch,
             boutons,
             boutona,
+            cartee,
             listep
           ],
         spacing=15
       )
       
     page.add(colone)
-    
+
 try:
     
     ft.app(
